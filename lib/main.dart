@@ -37,14 +37,11 @@ class Myhome extends StatelessWidget {
           SizedBox(width: 20),
         ],
       ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Text('Selamat datang di aplikasi demo flutter'),
-            Icon(Icons.flutter_dash, size: 50),
-          ],
-        ),
+      body: Container(
+        color: const Color.fromARGB(255, 58, 94, 161),
+        width: 100,
+        height: 150,
+        child: Align('Hellow', stStyle(color: Colors.white, fontSize: 20)),
       ),
     );
   }
