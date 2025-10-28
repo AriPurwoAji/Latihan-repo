@@ -39,16 +39,31 @@ class Myhome extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          color: const Color.fromARGB(255, 81, 176, 254),
-          padding: EdgeInsets.all(20),
-          child: Container(
-            color: Colors.amber,
-            child: Text(
-              'Hello Flutter',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+          decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 81, 176, 254),
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: Colors.blue, width: 4),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Container(
+              margin: EdgeInsets.all(40),
+              color: Colors.amber,
+              child: Text(
+                'Hello Flutter',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
