@@ -37,12 +37,22 @@ class Myhome extends StatelessWidget {
           SizedBox(width: 20),
         ],
       ),
-      body: Container(
-        color: const Color.fromARGB(255, 58, 94, 161),
-        width: 100,
-        height: 150,
-        alignment: Alignment.bottomCenter,
-        child: Text("Contoh Alingment"),
+      body: Center(
+        child: Container(
+          color: const Color.fromARGB(255, 81, 176, 254),
+          padding: EdgeInsets.all(20),
+          child: Container(
+            color: Colors.amber,
+            child: Text(
+              'Hello Flutter',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
