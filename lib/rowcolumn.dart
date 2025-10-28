@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Demo Flutter',
       home: Myhome(),
@@ -20,13 +20,40 @@ class MyApp extends StatelessWidget {
 class Myhome extends StatelessWidget {
   const Myhome({super.key});
 
+  // 🔹 Fungsi reusable untuk membuat kotak berlabel
+  Widget labeledBox(
+    String label, {
+    Color? color,
+    double? width,
+    double? height,
+  }) {
+    return Container(
+      width: width ?? 50,
+      height: height ?? 50,
+      padding: const EdgeInsets.all(8),
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: color ?? Colors.teal,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.black12),
+      ),
+      child: Text(
+        label,
+        style: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Demo Flutter App'),
+        title: const Text('Demo Flutter App'),
         backgroundColor: const Color.fromARGB(255, 105, 194, 239),
-        actions: [
+        actions: const [
           Icon(Icons.person, color: Colors.blue),
           SizedBox(width: 20),
           Icon(Icons.account_tree),
@@ -38,12 +65,60 @@ class Myhome extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: EdgeInsetsGeometry.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            Text("text 1", style: TextStyle(fontSize: 30)),
-            Text("text 2", style: TextStyle(fontSize: 30)),
-            Text("text 3", style: TextStyle(fontSize: 30)),
+            //  Bagian ROW (Horizontal)
+            const Text(
+              "Row Horizontal (→)",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 182, 214, 241),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.grey),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  labeledBox("A", color: Colors.red, width: 50, height: 50),
+                  const SizedBox(width: 10),
+                  labeledBox("B", color: Colors.blue, width: 50, height: 50),
+                  const SizedBox(width: 10),
+                  labeledBox("C", color: Colors.yellow, width: 50, height: 50),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 40),
+
+            //  Bagian COLUMN (Vertical)
+            const Text(
+              "Column Vertical (↓)",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 182, 214, 241),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.grey),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  labeledBox("A", color: Colors.red, width: 50, height: 50),
+                  const SizedBox(height: 10),
+                  labeledBox("B", color: Colors.blue, width: 50, height: 50),
+                  const SizedBox(height: 10),
+                  labeledBox("C", color: Colors.yellow, width: 50, height: 50),
+                ],
+              ),
+            ),
           ],
         ),
       ),
