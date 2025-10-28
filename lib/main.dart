@@ -41,7 +41,8 @@ class Myhome extends StatelessWidget {
         color: const Color.fromARGB(255, 58, 94, 161),
         width: 100,
         height: 150,
-        child: Align('Hellow', stStyle(color: Colors.white, fontSize: 20)),
+        alignment: Alignment.bottomCenter,
+        child: Text("Contoh Alingment"),
       ),
     );
   }
